@@ -1,0 +1,50 @@
+
+
+message Message {
+
+
+	enum Type {
+
+		Request=0;
+		Response=1;
+	}
+
+	message Header {
+
+		required int32 uid=1;
+		required Type type=2;
+		optional int32 ack=3;
+	
+	}
+	
+	enum Opcode {
+	
+		NewMovie=0;
+		GetMvoie=1;
+		ListMovie=2;
+		FindByActor=3;
+		FindByDirector=4;
+		DeleteMovie=5;
+		GetReviews=6;
+		AddReviews=7;
+		Update=8;
+	}
+
+	enum Server {
+	
+		Print=0;
+		Reply=1;
+		Success=2;
+		Failure=3;
+	}
+
+	required Header header=1;
+
+	optional string command=2;
+
+	repeated Server server=3;
+
+	repeated string str=4;
+	
+	
+}

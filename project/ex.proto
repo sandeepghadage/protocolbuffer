@@ -1,0 +1,55 @@
+message Movie {
+  required string Name = 1;
+  repeated string Actor = 2;
+  repeated string Director=3;
+  required int32 Duration=4;
+
+  enum Month {
+  
+	Jan=1;
+	Feb=2;
+	Mar=3;
+	Apr=4;
+	May=5;
+	Jun=6;
+	Jul=7;
+	Aug=8;
+	Sep=9;
+	Oct=10;
+	Nov=11;
+	Dec=12;
+	
+  }
+
+  message Date {
+  
+	required int32 day=1;
+        required Month month=2;
+        required int32 Year=3;
+  }
+  
+  required Date date=5;
+
+  enum Genre {
+  	
+	Adventure=0;
+	Action=1;
+	Drama=2;
+	Comedy=3;
+  }
+
+  repeated Genre genre=6;
+
+  message Review {
+  
+	required string User=1;
+	required int32 Rating=2;
+	required Date date=3;
+	optional string Comment=4;
+  }
+
+  repeated Review review=7;
+
+
+  
+}
